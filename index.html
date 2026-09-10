@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radhitya Dwi Rivaldo — Web Developer & Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  (function(){
+    var saved = localStorage.getItem('site_theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    if(theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#hero" class="logo">raka<span>.</span>dev</a>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#tools">Tools</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <span class="nav-indicator"></span>
+    </div>
+    <div class="nav-cta">
+      <button class="theme-toggle" id="themeToggleBtn" aria-label="Ganti tema terang/gelap" type="button">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu navigasi">
+        <svg id="iconMenu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#tools">Tools</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-eyebrow">Hai, saya Radhitya</p>
+      <h1 class="hero-name">
+        <span class="hero-name-line">Radhitya</span>
+        <span class="hero-name-mid">Dwi</span>
+        <span class="hero-name-line">Rivaldo</span>
+      </h1>
+      <p class="hero-role">Web Developer &amp; Designer</p>
+      <p class="hero-desc">Saya membangun website dan sistem informasi yang rapi secara visual dan solid dari sisi kode — mulai dari sekolah, dashboard akademik, sampai portofolio pribadi.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">Lihat Project Saya</a>
+        <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-frame">RD</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <p class="kicker">Tentang Saya</p>
+      <h2 class="section-title" style="margin-bottom:24px;">Developer muda yang senang menerjemahkan ide jadi produk yang bisa dipakai.</h2>
+      <p>Saya mulai belajar web development secara otodidak dan lewat bangku kuliah, lalu jatuh cinta pada proses mengubah kebutuhan yang berantakan menjadi antarmuka yang jelas dan sistem yang jalan dengan benar.</p>
+      <p>Fokus saya ada di pengembangan web full-stack dengan PHP dan Laravel, ditambah kepekaan desain UI/UX supaya hasil akhirnya nggak cuma berfungsi, tapi juga enak dipakai. Saat ini banyak mengerjakan sistem informasi untuk sekolah dan instansi pendidikan.</p>
+    </div>
+    <div class="about-side">
+      <div class="about-photo">
+        <div class="avatar-frame">RD</div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <p class="stat-num">12+</p>
+          <p class="stat-label">Project Selesai</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-num">10</p>
+          <p class="stat-label">Skill Utama</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-num">3</p>
+          <p class="stat-label">Tahun Belajar</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <p class="kicker">Peralatan</p>
+    <h2 class="section-title">Software &amp; Tools I Use</h2>
+    <div class="tools-grid">
+      <div class="tool-card"><div class="tool-icon">VS</div><div><p class="tool-name">Visual Studio Code</p><p class="tool-desc">Code editor utama untuk semua project harian.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">Fg</div><div><p class="tool-name">Figma</p><p class="tool-desc">Merancang wireframe dan tampilan UI sebelum coding.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">Gh</div><div><p class="tool-name">GitHub</p><p class="tool-desc">Menyimpan repository dan mengelola kolaborasi kode.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">La</div><div><p class="tool-name">Laravel</p><p class="tool-desc">Framework PHP andalan untuk membangun sistem backend.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">Ch</div><div><p class="tool-name">Google Chrome</p><p class="tool-desc">DevTools untuk debugging tampilan dan performa.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">Db</div><div><p class="tool-name">MySQL</p><p class="tool-desc">Mengelola basis data untuk aplikasi yang dibangun.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">Gt</div><div><p class="tool-name">Git</p><p class="tool-desc">Version control untuk menjaga riwayat perubahan kode.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">Ps</div><div><p class="tool-name">Adobe Photoshop</p><p class="tool-desc">Menyunting aset visual dan gambar untuk website.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">Cv</div><div><p class="tool-name">Canva</p><p class="tool-desc">Membuat materi visual pendukung dengan cepat.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <p class="kicker">Karya</p>
+    <h2 class="section-title">Proyek Besar</h2>
+    <p class="subsection-desc">Website dan sistem yang dikembangkan penuh dari sisi frontend maupun backend.</p>
+    <div class="projects-grid" id="projectsGrid"></div>
+    <div class="view-all-wrap">
+      <a href="projects.html" class="btn btn-outline">Lihat Semua Proyek</a>
+    </div>
+
+    <div class="subsection-gap"></div>
+
+    <h2 class="section-title">Karya Desain</h2>
+    <p class="subsection-desc">Poster, konten media sosial, dan desain grafis lain di luar pengembangan website.</p>
+    <div class="design-grid" id="designGrid"></div>
+    <div class="view-all-wrap">
+      <a href="designs.html" class="btn btn-outline">Lihat Semua Karya Desain</a>
+    </div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="lightboxOverlay">
+  <div class="modal lightbox-modal" id="lightboxContent"></div>
+</div>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <p class="kicker">Kontak</p>
+      <h2>Punya project yang ingin dikerjakan bersama?</h2>
+      <p>Saya terbuka untuk kolaborasi, proyek freelance, maupun sekadar diskusi seputar web development dan desain.</p>
+      <div class="contact-links">
+        <a href="mailto:raka.adiyatma@email.com" class="contact-chip">Email</a>
+        <a href="https://github.com/" class="contact-chip">GitHub</a>
+        <a href="https://instagram.com/" class="contact-chip">Instagram</a>
+        <a href="https://linkedin.com/" class="contact-chip">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>&copy; 2026 Radhitya Dwi Rivaldo. Seluruh hak cipta dilindungi.</p>
+    <div class="footer-links">
+      <a href="https://github.com/">GitHub</a>
+      <a href="https://instagram.com/">Instagram</a>
+      <a href="https://linkedin.com/">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+
+<script src="projects-data.js"></script>
+<script src="designs-data.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+</html>

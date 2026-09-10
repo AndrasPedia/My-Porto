@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semua Proyek — Radhitya Dwi Rivaldo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  (function(){
+    var saved = localStorage.getItem('site_theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    if(theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo">raka<span>.</span>dev</a>
+    <div class="nav-links">
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <button class="theme-toggle" id="themeToggleBtn" aria-label="Ganti tema terang/gelap" type="button">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu navigasi">
+        <svg id="iconMenu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="index.html#hero">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#tools">Tools</a>
+    <a href="projects.html">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</header>
+
+<section id="all-projects" style="padding-top:96px;">
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Kembali ke Beranda</a>
+    <p class="kicker">Karya</p>
+    <h1 class="section-title">Semua Proyek Besar</h1>
+    <p class="subsection-desc" style="margin-top:-30px;">Daftar lengkap website dan sistem yang sudah saya kembangkan.</p>
+    <div class="projects-grid" id="projectsGrid"></div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>&copy; 2026 Radhitya Dwi Rivaldo. Seluruh hak cipta dilindungi.</p>
+    <div class="footer-links">
+      <a href="https://github.com/">GitHub</a>
+      <a href="https://instagram.com/">Instagram</a>
+      <a href="https://linkedin.com/">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script src="projects-data.js"></script>
+<script src="projects-page.js"></script>
+</body>
+</html>
