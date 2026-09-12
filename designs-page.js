@@ -10,9 +10,10 @@ const revealObserver = ('IntersectionObserver' in window)
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' })
   : null;
 
-function initReveal(elements){
+function initReveal(elements, className){
+  className = className || 'reveal';
   Array.from(elements).forEach((el, i) => {
-    el.classList.add('reveal');
+    el.classList.add(className);
     el.style.transitionDelay = (i % 4) * 90 + 'ms';
     if(revealObserver){
       revealObserver.observe(el);
@@ -98,11 +99,10 @@ function renderDesignsPage(page){
     const card = document.createElement('div');
     card.className = designCardClass(d);
     card.innerHTML = designCardHTML(d);
-    card.addEventListener('click', () => openLightbox(absoluteIndex));
     grid.appendChild(card);
   });
 
-  initReveal(grid.querySelectorAll('.design-card'));
+  initReveal(grid.querySelectorAll('.design-card'), 'reveal-left');
   renderPagination();
   window.scrollTo({ top: document.getElementById('all-designs').offsetTop - 90, behavior: 'smooth' });
 }
