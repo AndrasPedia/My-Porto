@@ -96,9 +96,10 @@ function renderProjectsPage(page){
   pageProjects.forEach((p, idx) => {
     const absoluteIndex = start + idx;
     const card = document.createElement('div');
-    card.className = 'project-card';
+    card.className = 'project-card project-card-clickable';
     card.innerHTML = projectCardHTML(p);
-    card.querySelector('[data-action="detail"]').addEventListener('click', () => openModal(absoluteIndex));
+    card.addEventListener('click', () => openModal(absoluteIndex));
+    card.querySelector('.project-link-outline').addEventListener('click', (e) => e.stopPropagation());
     grid.appendChild(card);
   });
 
