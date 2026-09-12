@@ -1,10 +1,10 @@
 const designWorks = [
-  { title: "Poster Event Sekolah", category: "Poster", orientation: "landscape", image: "assets/1234.png" },
-  { title: "Feed Instagram PPDB", category: "Media Sosial", orientation: "portrait", image: "assets/design-2-feed-ppdb.svg" },
-  { title: "Undangan Digital", category: "Undangan", orientation: "landscape", image: "assets/design-3-undangan.svg" },
-  { title: "Poster Webinar", category: "Poster", orientation: "portrait", image: "assets/design-4-poster-webinar.svg" },
-  { title: "Banner Media Sosial", category: "Media Sosial", orientation: "landscape", image: "assets/design-5-banner.svg" },
-  { title: "Desain Sertifikat", category: "Sertifikat", orientation: "portrait", image: "assets/design-6-sertifikat.svg" }
+  { title: "Poster Event Sekolah", category: "Poster", orientation: "landscape", image: "assets/A4.png" },
+  { title: "Feed Instagram PPDB", category: "Media Sosial", orientation: "portrait", image: "assets/A4.png" },
+  { title: "Undangan Digital", category: "Undangan", orientation: "landscape", image: "assets/A4.png" },
+  { title: "Poster Webinar", category: "Poster", orientation: "portrait", image: "assets/A4.png" },
+  { title: "Banner Media Sosial", category: "Media Sosial", orientation: "landscape", image: "assets/A4.png" },
+  { title: "Desain Sertifikat", category: "Sertifikat", orientation: "portrait", image: "assets/A4.png" }
 ];
 
 function designCardClass(d){
