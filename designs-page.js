@@ -96,7 +96,7 @@ function renderDesignsPage(page){
   pageItems.forEach((d, idx) => {
     const absoluteIndex = start + idx;
     const card = document.createElement('div');
-    card.className = 'design-card';
+    card.className = designCardClass(d);
     card.innerHTML = designCardHTML(d);
     card.addEventListener('click', () => openLightbox(absoluteIndex));
     grid.appendChild(card);
