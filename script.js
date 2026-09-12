@@ -28,37 +28,69 @@ const HOME_PREVIEW_COUNT = 2;
 grid.innerHTML = '';
 projects.slice(0, HOME_PREVIEW_COUNT).forEach((p, i) => {
   const card = document.createElement('div');
-  card.className = 'project-card';
+  card.className = 'project-card project-card-clickable';
   card.innerHTML = projectCardHTML(p);
-  card.querySelector('[data-action="detail"]').addEventListener('click', () => openModal(i));
+  card.addEventListener('click', () => openModal(i));
+  card.querySelector('.project-link-outline').addEventListener('click', (e) => e.stopPropagation());
   grid.appendChild(card);
 });
 initReveal(grid.querySelectorAll('.project-card'));
 
 const designGrid = document.getElementById('designGrid');
-const DESIGN_PREVIEW_COUNT = 3;
-designWorks.slice(0, DESIGN_PREVIEW_COUNT).forEach((d, i) => {
+const DESIGN_PREVIEW_COUNT = 4;
+designWorks.slice(0, DESIGN_PREVIEW_COUNT).forEach((d) => {
   const card = document.createElement('div');
-  card.className = 'design-card';
+  card.className = designCardClass(d);
   card.innerHTML = designCardHTML(d);
-  card.addEventListener('click', () => openLightbox(i));
+  card.addEventListener('click', () => openLightbox(d));
   designGrid.appendChild(card);
 });
 initReveal(designGrid.querySelectorAll('.design-card'));
 
+const mobileGrid = document.getElementById('mobileGrid');
+mobileApps.forEach((m) => {
+  const card = document.createElement('div');
+  card.className = 'design-card mobile-card';
+  card.innerHTML = mobileAppCardHTML(m);
+  card.addEventListener('click', () => openLightbox(m));
+  mobileGrid.appendChild(card);
+});
+initReveal(mobileGrid.querySelectorAll('.mobile-card'));
+
 const lightboxOverlay = document.getElementById('lightboxOverlay');
 const lightboxContent = document.getElementById('lightboxContent');
 
-function openLightbox(i){
-  const d = designWorks[i];
-  lightboxContent.innerHTML = `
-    <button class="modal-close" id="lightboxCloseBtn" aria-label="Tutup pratinjau">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-    <img src="${d.image}" alt="${d.title}">
-    <h3>${d.title}</h3>
-    <p class="modal-role">${d.category}</p>
-  `;
+function openLightbox(d){
+  if(d.overview){
+    const featuresHTML = d.features ? `
+      <div class="lightbox-features">
+        ${d.features.map(f => `<div class="feature-thumb"><img src="${f}" alt="Fitur ${d.title}"></div>`).join('')}
+      </div>
+    ` : '';
+    lightboxContent.innerHTML = `
+      <button class="modal-close" id="lightboxCloseBtn" aria-label="Tutup pratinjau">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="lightbox-flex">
+        <div class="lightbox-image-wrap"><img src="${d.image}" alt="${d.title}"></div>
+        <div class="lightbox-info">
+          <h3>${d.title}</h3>
+          <p class="lightbox-desc">${d.overview}</p>
+          ${featuresHTML}
+          ${d.figma ? `<a class="btn btn-primary" href="${d.figma}" target="_blank" rel="noopener">Lihat di Figma</a>` : ''}
+        </div>
+      </div>
+    `;
+  }else{
+    lightboxContent.innerHTML = `
+      <button class="modal-close" id="lightboxCloseBtn" aria-label="Tutup pratinjau">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <img src="${d.image}" alt="${d.title}">
+      <h3>${d.title}</h3>
+      <p class="modal-role">${d.category}</p>
+    `;
+  }
   lightboxOverlay.classList.add('open');
   document.body.style.overflow = 'hidden';
   document.getElementById('lightboxCloseBtn').addEventListener('click', closeLightbox);
