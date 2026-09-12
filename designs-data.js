@@ -1,5 +1,5 @@
 const designWorks = [
-  { title: "Poster Event Sekolah", category: "Poster", orientation: "landscape", image: "assets/design-1-poster-event.svg" },
+  { title: "Poster Event Sekolah", category: "Poster", orientation: "landscape", image: "assets/1234.png" },
   { title: "Feed Instagram PPDB", category: "Media Sosial", orientation: "portrait", image: "assets/design-2-feed-ppdb.svg" },
   { title: "Undangan Digital", category: "Undangan", orientation: "landscape", image: "assets/design-3-undangan.svg" },
   { title: "Poster Webinar", category: "Poster", orientation: "portrait", image: "assets/design-4-poster-webinar.svg" },
