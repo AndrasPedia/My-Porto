@@ -10,9 +10,10 @@ const revealObserver = ('IntersectionObserver' in window)
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' })
   : null;
 
-function initReveal(elements){
+function initReveal(elements, className){
+  className = className || 'reveal';
   Array.from(elements).forEach((el, i) => {
-    el.classList.add('reveal');
+    el.classList.add(className);
     el.style.transitionDelay = (i % 4) * 90 + 'ms';
     if(revealObserver){
       revealObserver.observe(el);
@@ -103,7 +104,7 @@ function renderProjectsPage(page){
     grid.appendChild(card);
   });
 
-  initReveal(grid.querySelectorAll('.project-card'));
+  initReveal(grid.querySelectorAll('.project-card'), 'reveal-left');
   renderPagination();
   window.scrollTo({ top: document.getElementById('all-projects').offsetTop - 90, behavior: 'smooth' });
 }
@@ -123,8 +124,6 @@ function openModal(i){
     <h3>${p.name}</h3>
     <p class="modal-role">${p.role}</p>
     <div class="modal-block"><h4>Overview</h4><p>${p.overview}</p></div>
-    <div class="modal-block"><h4>Problem</h4><p>${p.problem}</p></div>
-    <div class="modal-block"><h4>Solution</h4><p>${p.solution}</p></div>
     <div class="modal-block"><h4>Fitur Utama</h4><ul class="modal-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul></div>
     <div class="modal-block"><h4>Teknologi</h4><div class="modal-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>
     <a class="btn btn-primary" href="${p.figma}" target="_blank" rel="noopener">Lihat Desain di Figma</a>
