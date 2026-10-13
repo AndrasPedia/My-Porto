@@ -132,9 +132,23 @@ document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(
 
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobilePanel = document.getElementById('mobilePanel');
-hamburgerBtn.addEventListener('click', () => {
+function positionMobilePanel(){
+  const headerEl = document.querySelector('header');
+  if(headerEl) mobilePanel.style.top = headerEl.getBoundingClientRect().bottom + 'px';
+}
+hamburgerBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  positionMobilePanel();
   mobilePanel.classList.toggle('open');
 });
+document.addEventListener('click', (e) => {
+  if(!mobilePanel.classList.contains('open')) return;
+  const card = mobilePanel.querySelector('.mobile-panel-card');
+  if(card && !card.contains(e.target)){
+    mobilePanel.classList.remove('open');
+  }
+});
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') mobilePanel.classList.remove('open'); });
 mobilePanel.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => mobilePanel.classList.remove('open'));
 });
@@ -196,6 +210,7 @@ function handleNavScroll(){
     header.classList.remove('nav-compact');
   }
   updateActiveNav();
+  if(mobilePanel.classList.contains('open')) positionMobilePanel();
 }
 
 window.addEventListener('scroll', handleNavScroll, { passive: true });

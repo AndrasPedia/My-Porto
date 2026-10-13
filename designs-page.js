@@ -102,7 +102,18 @@ function renderDesignsPage(page){
     grid.appendChild(card);
   });
 
-  initReveal(grid.querySelectorAll('.design-card'), 'reveal-left');
+  const designCards = grid.querySelectorAll('.design-card');
+  const half = Math.ceil(designCards.length / 2);
+  designCards.forEach((el, i) => {
+    const className = i < half ? 'reveal-right' : 'reveal-left';
+    el.classList.add(className);
+    el.style.transitionDelay = (i % 4) * 90 + 'ms';
+    if(revealObserver){
+      revealObserver.observe(el);
+    }else{
+      el.classList.add('in-view');
+    }
+  });
   renderPagination();
   window.scrollTo({ top: document.getElementById('all-designs').offsetTop - 90, behavior: 'smooth' });
 }
@@ -135,9 +146,23 @@ document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightb
 
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobilePanel = document.getElementById('mobilePanel');
-hamburgerBtn.addEventListener('click', () => {
+function positionMobilePanel(){
+  const headerEl = document.querySelector('header');
+  if(headerEl) mobilePanel.style.top = headerEl.getBoundingClientRect().bottom + 'px';
+}
+hamburgerBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  positionMobilePanel();
   mobilePanel.classList.toggle('open');
 });
+document.addEventListener('click', (e) => {
+  if(!mobilePanel.classList.contains('open')) return;
+  const card = mobilePanel.querySelector('.mobile-panel-card');
+  if(card && !card.contains(e.target)){
+    mobilePanel.classList.remove('open');
+  }
+});
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') mobilePanel.classList.remove('open'); });
 mobilePanel.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => mobilePanel.classList.remove('open'));
 });
@@ -161,5 +186,6 @@ function handleNavScroll(){
   }else{
     header.classList.remove('nav-compact');
   }
+  if(mobilePanel.classList.contains('open')) positionMobilePanel();
 }
 window.addEventListener('scroll', handleNavScroll, { passive: true });
