@@ -4,7 +4,7 @@ const projects = [
     orientation: "landscape",
     desc: "Desain tampilan website profil sekolah, mencakup halaman akademik, berita, dan galeri kegiatan.",
     tags: ["Figma", "UI/UX Design", "Wireframing"],
-    image: "assets/project-1-sekolah.svg",
+    image: "assets/test.png",
     figma: "https://www.figma.com/file/your-figma-id/website-sekolah",
     overview: "Rancangan tampilan website profil sekolah yang menampilkan informasi akademik, berita terbaru, dan galeri kegiatan siswa kepada calon murid dan orang tua.",
     problem: "Sekolah belum punya kanal informasi digital, sehingga pendaftaran dan pengumuman masih disebar manual lewat kertas dan grup chat.",
