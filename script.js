@@ -217,3 +217,16 @@ window.addEventListener('scroll', handleNavScroll, { passive: true });
 window.addEventListener('resize', updateActiveNav);
 window.addEventListener('load', updateActiveNav);
 updateActiveNav();
+
+(function(){
+  const p=document.getElementById('mobilePanel');
+  const syncActive=()=>{
+    const desk=[...document.querySelectorAll('.nav-links a')];
+    const mob=[...p.querySelectorAll('.mp-links a')];
+    const i=desk.findIndex(a=>a.classList.contains('active'));
+    mob.forEach((a,k)=>a.classList.toggle('active',k===i));
+  };
+  document.getElementById('hamburgerBtn').addEventListener('click',syncActive);
+  document.getElementById('mpCloseBtn').addEventListener('click',()=>p.classList.remove('open'));
+  document.getElementById('mpThemeBtn').addEventListener('click',()=>document.getElementById('themeToggleBtn').click());
+})();
