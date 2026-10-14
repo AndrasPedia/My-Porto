@@ -2,11 +2,11 @@ const mobileApps = [
   {
     title: "App Absensi Mobile",
     category: "Mobile App",
-    image: "assets/mobile-1-absensi.svg",
+    image: "assets/1.png",
     overview: "Aplikasi mobile untuk guru mencatat kehadiran siswa langsung dari ponsel, terhubung dengan sistem absensi sekolah.",
     role: "UI/UX Designer — merancang alur dan tampilan aplikasi",
     figma: "https://www.figma.com/file/your-figma-id/app-absensi-mobile",
-    features: ["assets/feature-placeholder-1.svg", "assets/feature-placeholder-2.svg", "assets/feature-placeholder-3.svg"]
+    features: ["assets/2.png", "assets/3.png", "assets/4.png"]
   },
   {
     title: "App Perpustakaan Mobile",

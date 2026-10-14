@@ -390,11 +390,11 @@
   }
   .modal-close:hover{color:var(--text);}
   .modal-thumb{
-    aspect-ratio:16/9;border-radius:12px;margin-bottom:28px;
+    border-radius:12px;margin-bottom:28px;
     background:var(--surface-2);border:1px solid var(--border);
-    overflow:hidden;
+    overflow:hidden;max-height:65vh;overflow-y:auto;
   }
-  .modal-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .modal-thumb img{width:100%;height:auto;display:block;}
   .modal h3{font-size:26px;margin:0 0 6px;}
   .modal .modal-role{font-size:14px;color:var(--accent);font-family:'JetBrains Mono',monospace;margin:0 0 28px;}
   .modal-block{margin-bottom:24px;}
