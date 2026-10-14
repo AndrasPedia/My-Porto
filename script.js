@@ -178,6 +178,7 @@ const header = document.querySelector('header');
 const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
 const navIndicator = document.querySelector('.nav-indicator');
 const navSections = navLinks
+  .filter(a => a.getAttribute('href').startsWith('#'))
   .map(a => document.querySelector(a.getAttribute('href')))
   .filter(Boolean);
 
