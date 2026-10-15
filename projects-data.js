@@ -1,82 +1,104 @@
 const projects = [
   {
-    name: "Website Sekolah SMA Nusantara",
+    name: "Website MTs Fadlun Nafis",
     orientation: "landscape",
-    desc: "Desain tampilan website profil sekolah, mencakup halaman akademik, berita, dan galeri kegiatan.",
     tags: ["Figma", "UI/UX Design", "Wireframing"],
     image: "assets/Beranda.png",
     figma: "https://www.figma.com/file/your-figma-id/website-sekolah",
-    overview: "Rancangan tampilan website profil sekolah yang menampilkan informasi akademik, berita terbaru, dan galeri kegiatan siswa kepada calon murid dan orang tua.",
-    problem: "Sekolah belum punya kanal informasi digital, sehingga pendaftaran dan pengumuman masih disebar manual lewat kertas dan grup chat.",
-    solution: "Merancang alur dan tampilan website terpusat yang mudah dikelola, dengan struktur informasi yang jelas untuk pihak sekolah maupun pengunjung.",
-    features: ["Desain halaman profil dan visi misi sekolah", "Rancangan tampilan berita dan pengumuman", "Layout galeri kegiatan dengan kategori", "Desain formulir pendaftaran online"],
+    overview: "Perancangan UI/UX website public MTs Fadlun Nafis sebagai media informasi sekolah yang menyajikan profil, berita, prestasi, dan kegiatan sekolah dengan tampilan yang menarik, informatif, serta mudah diakses.",
+    features: ["Desain halaman beranda dengan informasi utama sekolah", "Tampilan profil sekolah, visi misi, dan informasi guru", "Halaman berita dan informasi kegiatan sekolah", "Tampilan prestasi dan ekstrakurikuler siswa", "Halaman kontak untuk memudahkan pengunjung menghubungi sekolah"],
     role: "UI/UX Designer — merancang alur dan tampilan antarmuka"
   },
   {
-    name: "Dashboard Sistem Akademik",
+    name: "Dashboard Admin MTs Fadlun Nafis",
     orientation: "landscape",
-    desc: "Desain tampilan dashboard untuk guru dan staf mengelola nilai, jadwal, dan data siswa.",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
     image: "assets/DashboardAdmin.png",
     figma: "https://www.figma.com/file/your-figma-id/dashboard-akademik",
-    overview: "Rancangan antarmuka dashboard internal untuk staf tata usaha dan guru dalam mengelola data akademik siswa, mulai dari nilai hingga jadwal pelajaran.",
-    problem: "Pencatatan nilai dan jadwal masih dilakukan lewat spreadsheet terpisah, rawan duplikasi dan sulit direkap saat akhir semester.",
-    solution: "Merancang tampilan dashboard terpusat dengan alur akses berbeda untuk guru dan admin, lengkap dengan visualisasi rekap nilai.",
-    features: ["Desain tampilan manajemen data siswa dan guru", "Rancangan form input dan rekap nilai", "Layout penjadwalan kelas", "Desain visualisasi statistik akademik"],
+    overview: "Perancangan UI/UX dashboard admin MTs Fadlun Nafis untuk memudahkan pengelolaan data sekolah dan konten website melalui antarmuka yang terstruktur, informatif, dan mudah digunakan.",
+    features: ["Tampilan dashboard dengan ringkasan data guru, siswa, kelas, dan mata pelajaran", "Desain pengelolaan data sekolah dengan fitur tambah, edit, dan hapus (CRUD)", "Tampilan manajemen konten website, berita, prestasi, dan ekstrakurikuler", "Visualisasi data presensi, prestasi, dan pelanggaran siswa"],
     role: "UI/UX Designer — merancang alur dan tampilan dashboard"
   },
   {
-    name: "Website Portfolio Personal",
+    name: "Dashboard Guru MTs Fadlun Nafis",
     orientation: "landscape",
-    desc: "Desain tampilan portfolio pribadi untuk menampilkan skill, tools, dan hasil karya.",
     tags: ["Figma", "UI/UX Design", "Web Design"],
     image: "assets/DashboardGuru.png",
-    figma: "https://www.figma.com/file/your-figma-id/portfolio-personal",
-    overview: "Rancangan tampilan website portfolio pribadi yang menampilkan perjalanan, kemampuan, dan hasil karya sebagai web developer dan designer.",
-    problem: "Belum memiliki representasi digital yang mencerminkan kemampuan dan hasil kerja secara profesional untuk dibagikan ke klien atau perekrut.",
-    solution: "Merancang tampilan single-page dengan gaya gelap yang bersih, struktur informasi yang jelas, dan studi kasus tiap karya.",
-    features: ["Desain section hero, about, dan tools", "Layout galeri project dengan studi kasus", "Rancangan navigasi sticky dan responsif", "Desain formulir kontak dan tautan sosial"],
+    figma: "https://www.figma.com/file/your-figma-id/dashboard-guru",
+    overview: "Perancangan UI/UX dashboard guru MTs Fadlun Nafis untuk memudahkan pengelolaan presensi, jadwal mengajar, pelanggaran, prestasi, dan kenaikan kelas siswa melalui antarmuka yang modern, intuitif, dan responsif.",
+    features: ["Desain dashboard guru yang informatif dan mudah digunakan", "Tampilan pengelolaan presensi siswa dan rekap absensi", "Desain halaman jadwal mengajar beserta notifikasi pengingat", "Tampilan pencatatan pelanggaran dan prestasi siswa"],
     role: "UI/UX Designer — dari wireframe sampai desain akhir"
   },
   {
-    name: "Sistem Absensi Digital",
+    name: "Website Sepatu Zorie",
     orientation: "landscape",
-    desc: "Desain tampilan aplikasi absensi untuk mencatat kehadiran siswa secara digital.",
     tags: ["Figma", "UI/UX Design", "Mobile-first Design"],
-    image: "assets/project-4-absensi.svg",
-    figma: "https://www.figma.com/file/your-figma-id/sistem-absensi",
-    overview: "Rancangan antarmuka sistem absensi digital yang menggantikan pencatatan manual di kelas dengan tampilan yang mudah diakses guru.",
-    problem: "Rekap kehadiran manual memakan waktu dan sering terjadi selisih data antara buku absen dan laporan akhir bulan.",
-    solution: "Merancang alur pencatatan kehadiran harian dan tampilan laporan otomatis yang sederhana untuk wali kelas.",
-    features: ["Desain tampilan input kehadiran per kelas", "Rancangan rekap otomatis bulanan", "Desain notifikasi keterlambatan", "Layout laporan yang bisa diekspor"],
-    role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
+    image: "assets/BerandaZorie.png",
+    figma: "https://www.figma.com/file/your-figma-id/website-sepatu-zorie",
+    overview: "Rancangan antarmuka website e-commerce sepatu Zorie yang menawarkan pengalaman belanja online yang nyaman dan menarik.",
+    features: ["Desain halaman beranda dengan promosi dan produk unggulan", "Tampilan katalog produk dengan filter dan sorting", "Desain halaman detail produk dengan gambar dan informasi lengkap", "Rancangan proses checkout yang sederhana dan aman"],
+    role: "UI/UX Designer — merancang alur dan tampilan website"
   },
   {
-    name: "Website Informasi Sekolah",
+    name: "Dashboard Admin Sepatu Zorie",
     orientation: "landscape",
-    desc: "Desain landing page informatif berisi jadwal PPDB, kontak, dan lokasi sekolah.",
     tags: ["Figma", "UI/UX Design", "Landing Page"],
-    image: "assets/project-5-informasi.svg",
-    figma: "https://www.figma.com/file/your-figma-id/informasi-sekolah",
-    overview: "Rancangan landing page ringan yang fokus menyampaikan informasi penerimaan siswa baru, jadwal penting, dan kontak sekolah.",
-    problem: "Calon pendaftar kesulitan menemukan info PPDB terbaru karena tersebar di beberapa platform media sosial.",
-    solution: "Merancang satu halaman informasi terpusat dengan timeline PPDB yang jelas dan tampilan peta lokasi.",
-    features: ["Desain timeline jadwal PPDB", "Rancangan tampilan peta lokasi", "Desain formulir kontak cepat", "Layout satu halaman yang ringan"],
+    image: "assets/DashboardAdminZorie.png",
+    figma: "https://www.figma.com/file/your-figma-id/dashboard-admin-zorie",
+    overview: "Perancangan UI/UX dashboard admin Zorie untuk memudahkan pengelolaan toko online, mulai dari data produk hingga pemantauan pesanan melalui antarmuka yang terstruktur dan informatif.",
+    features: ["Desain dashboard dengan ringkasan data produk dan pesanan", "Tampilan manajemen produk dengan fitur tambah, edit, dan hapus", "Desain pengelolaan kategori dan informasi produk sepatu", "Tampilan daftar pesanan dan informasi transaksi pelanggan"],
     role: "UI/UX Designer — merancang tampilan halaman"
   },
   {
-    name: "Sistem Perpustakaan Sekolah",
-    orientation: "portrait",
-    desc: "Desain tampilan aplikasi pencatatan peminjaman dan pengembalian buku perpustakaan.",
+    name: "Dashboard User Sepatu Zorie",
+    orientation: "landscape",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
-    image: "assets/project-6-perpustakaan.svg",
-    figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
-    overview: "Rancangan antarmuka aplikasi internal untuk petugas perpustakaan mengelola koleksi buku serta mencatat peminjaman dan pengembalian.",
-    problem: "Pencatatan peminjaman buku masih manual di buku besar sehingga sulit melacak buku yang telat dikembalikan.",
-    solution: "Merancang alur pencatatan digital dengan tampilan pengingat untuk buku yang mendekati tenggat pengembalian.",
-    features: ["Desain tampilan katalog buku", "Rancangan alur peminjaman dan pengembalian", "Desain pengingat tenggat waktu", "Layout pencarian buku"],
+    image: "assets/DashboardUserZorie.png",
+    figma: "https://www.figma.com/file/your-figma-id/dashboard-user-zorie",
+    overview: "Perancangan UI/UX dashboard user Zorie untuk memberikan kemudahan kepada pelanggan dalam mengelola akun, melihat pesanan, dan memantau aktivitas pembelian melalui antarmuka yang sederhana dan intuitif.",
+    features: ["Desain halaman profil dan informasi akun pengguna", "Tampilan riwayat dan detail pesanan pelanggan", "Desain halaman keranjang belanja dan ringkasan pembelian", "Tampilan informasi status pesanan"],
     role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
-  }
+  },
+  {
+    name: "Sistem Perpustakaan Sekolah",
+    orientation: "landscape",
+    tags: ["Figma", "UI/UX Design", "Dashboard Design"],
+    image: "assets/Dashboard/Dashboard1.png",
+    figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
+    overview: "",
+    features: [""],
+    role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
+  },
+  {
+    name: "Sistem Perpustakaan Sekolah",
+    orientation: "landscape",
+    tags: ["Figma", "UI/UX Design", "Dashboard Design"],
+    image: "assets/Dashboard/Dashboard2.png",
+    figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
+    overview: "",
+    features: [""],
+    role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
+  },
+  {
+    name: "Sistem Perpustakaan Sekolah",
+    orientation: "landscape",
+    tags: ["Figma", "UI/UX Design", "Dashboard Design"],
+    image: "assets/Dashboard/Dashboard3.png",
+    figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
+    overview: "",
+    features: [""],
+    role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
+  },
+  {
+    name: "Sistem Perpustakaan Sekolah",
+    orientation: "landscape",
+    tags: ["Figma", "UI/UX Design", "Dashboard Design"],
+    image: "assets/Dashboard/Dashboard4.png",
+    figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
+    overview: "",
+    features: [""],
+    role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
+  },
 ];
 
 function projectCardHTML(p){
@@ -84,7 +106,7 @@ function projectCardHTML(p){
     <div class="project-thumb${p.orientation === 'portrait' ? ' portrait' : ''}"><img src="${p.image}" alt="Tampilan ${p.name}" loading="lazy"></div>
     <div class="project-body">
       <h3 class="project-name">${p.name}</h3>
-      <p class="project-desc">${p.desc}</p>
+      <p class="project-desc">${p.overview}</p>
       <div class="project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
       <div class="project-actions">
         <button class="project-link" data-action="detail" type="button">Lihat Project</button>
