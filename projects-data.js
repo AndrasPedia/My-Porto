@@ -60,44 +60,44 @@ const projects = [
     role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
   },
   {
-    name: "Sistem Perpustakaan Sekolah",
+    name: "Unnamed Project",
     orientation: "landscape",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
     image: "assets/Dashboard/Dashboard1.png",
     figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
     overview: "",
     features: [""],
-    role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
+    role: "UI/UX Designer — merancang"
   },
   {
-    name: "Sistem Perpustakaan Sekolah",
+    name: "Unnamed Project",
     orientation: "landscape",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
     image: "assets/Dashboard/Dashboard2.png",
     figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
     overview: "",
     features: [""],
-    role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
+    role: "UI/UX Designer — merancang"
   },
   {
-    name: "Sistem Perpustakaan Sekolah",
+    name: "Unnamed Project",
     orientation: "landscape",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
     image: "assets/Dashboard/Dashboard3.png",
     figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
     overview: "",
     features: [""],
-    role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
+    role: "UI/UX Designer — merancang"
   },
   {
-    name: "Sistem Perpustakaan Sekolah",
+    name: "Unnamed Project",
     orientation: "landscape",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
     image: "assets/Dashboard/Dashboard4.png",
     figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
     overview: "",
     features: [""],
-    role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
+    role: "UI/UX Designer — merancang"
   },
 ];
 
