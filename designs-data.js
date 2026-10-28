@@ -1,8 +1,8 @@
 const designWorks = [
-  { title: "Poster Event Sekolah", category: "Poster", orientation: "landscape", image: "assets/A41.png" },
-  { title: "Feed Instagram PPDB", category: "Media Sosial", orientation: "portrait", image: "assets/A42.png" },
-  { title: "Undangan Digital", category: "Undangan", orientation: "landscape", image: "assets/A43.png" },
-  { title: "Poster Webinar", category: "Poster", orientation: "portrait", image: "assets/A44.png" }
+  { title: "Poster 1", category: "Poster", orientation: "portrait", image: "assets/A41.png" },
+  { title: "Poster 2", category: "Poster", orientation: "portrait", image: "assets/A42.png" },
+  { title: "Poster 3", category: "Poster", orientation: "portrait", image: "assets/A43.png" },
+  { title: "Poster 4", category: "Poster", orientation: "portrait", image: "assets/A44.png" }
 ];
 
 function designCardClass(d){
