@@ -11,7 +11,7 @@ function designCardClass(d){
 
 function designCardHTML(d){
   return `
-    <img src="${d.image}" alt="${d.title}" loading="lazy">
+    <img src="${d.image}" alt="${d.title}" loading="lazy" decoding="async">
     <div class="design-card-overlay">
       <p class="design-card-title">${d.title}</p>
       <p class="design-card-tag">${d.category}</p>

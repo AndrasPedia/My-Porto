@@ -103,10 +103,10 @@ const projects = [
 
 function projectCardHTML(p){
   return `
-    <div class="project-thumb${p.orientation === 'portrait' ? ' portrait' : ''}"><img src="${p.image}" alt="Tampilan ${p.name}" loading="lazy"></div>
+    <div class="project-thumb${p.orientation === 'portrait' ? ' portrait' : ''}"><img src="${p.image}" alt="Tampilan ${p.name}" loading="lazy" decoding="async"></div>
     <div class="project-body">
       <h3 class="project-name">${p.name}</h3>
-      <p class="project-desc">${p.overview}</p>
+      <p class="project-desc">${p.desc}</p>
       <div class="project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
       <div class="project-actions">
         <button class="project-link" data-action="detail" type="button">Lihat Project</button>

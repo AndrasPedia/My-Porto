@@ -64,7 +64,7 @@ function openLightbox(d){
   if(d.overview){
     const featuresHTML = d.features ? `
       <div class="lightbox-features">
-        ${d.features.map(f => `<div class="feature-thumb"><img src="${f}" alt="Fitur ${d.title}"></div>`).join('')}
+        ${d.features.map(f => `<div class="feature-thumb"><img src="${f}" alt="Fitur ${d.title}" decoding="async"></div>`).join('')}
       </div>
     ` : '';
     lightboxContent.innerHTML = `
@@ -72,7 +72,7 @@ function openLightbox(d){
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="lightbox-flex">
-        <div class="lightbox-image-wrap"><img src="${d.image}" alt="${d.title}"></div>
+        <div class="lightbox-image-wrap"><img src="${d.image}" alt="${d.title}" decoding="async"></div>
         <div class="lightbox-info">
           <h3>${d.title}</h3>
           <p class="lightbox-desc">${d.overview}</p>
@@ -86,7 +86,7 @@ function openLightbox(d){
       <button class="modal-close" id="lightboxCloseBtn" aria-label="Tutup pratinjau">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-      <img src="${d.image}" alt="${d.title}">
+      <img src="${d.image}" alt="${d.title}" decoding="async">
       <h3>${d.title}</h3>
       <p class="modal-role">${d.category}</p>
     `;
@@ -111,7 +111,7 @@ function openModal(i){
     <button class="modal-close" id="modalCloseBtn" aria-label="Tutup detail project">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <div class="modal-thumb"><img src="${p.image}" alt="Tampilan ${p.name}"></div>
+    <div class="modal-thumb"><img src="${p.image}" alt="Tampilan ${p.name}" decoding="async"></div>
     <h3>${p.name}</h3>
     <p class="modal-role">${p.role}</p>
     <div class="modal-block"><h4>Overview</h4><p>${p.overview}</p></div>
@@ -169,6 +169,7 @@ const revealSelectors = [
   '.hero-eyebrow','.hero-name','.hero-role','.hero-desc','.hero-actions','.hero-visual',
   '#about .kicker','#about .section-title','#about .about-text p','#about .stat-card',
   '#tools .kicker','#tools .section-title','#tools .tool-card',
+  '#process .kicker','#process .section-title','#process .process-step',
   '#projects .kicker','#projects .section-title','#projects .subsection-desc',
   '.contact-inner .kicker','.contact-inner h2','.contact-inner p','.contact-inner .contact-links'
 ];

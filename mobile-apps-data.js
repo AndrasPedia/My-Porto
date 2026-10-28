@@ -12,7 +12,7 @@ const mobileApps = [
 
 function mobileAppCardHTML(m){
   return `
-    <img src="${m.image}" alt="${m.title}" loading="lazy">
+    <img src="${m.image}" alt="${m.title}" loading="lazy" decoding="async">
     <div class="design-card-overlay">
       <p class="design-card-title">${m.title}</p>
       <p class="design-card-tag">${m.category}</p>

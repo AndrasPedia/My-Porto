@@ -199,7 +199,7 @@
   .avatar-frame{
     position:relative;width:64%;aspect-ratio:1/1;border-radius:16px;
     background:linear-gradient(155deg,#151B26,#0D1117);
-    border:1px solid var(--border);
+    border:none;
     display:flex;align-items:center;justify-content:center;
     overflow:hidden;
   }
@@ -215,17 +215,18 @@
   .about-side{display:flex;flex-direction:column;gap:20px;}
   .about-photo{
     position:relative;aspect-ratio:1/1;border-radius:20px;
-    background:var(--surface);border:1px solid var(--border);
-    display:flex;align-items:center;justify-content:center;overflow:hidden;
+    background:none;border:none;
+    display:flex;align-items:center;justify-content:center;overflow:visible;
   }
   .about-photo::before{
+    display:none;
     content:"";position:absolute;inset:0;
     background-image:
       linear-gradient(var(--border-soft) 1px, transparent 1px),
       linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
     background-size:24px 24px;opacity:0.5;
   }
-  .about-photo .avatar-frame{width:60%;}
+  .about-photo .avatar-frame{width:78%;}
   .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
   .stat-card{
     background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
@@ -541,3 +542,71 @@
   @media (prefers-reduced-motion:reduce){
     .orb,.bg-anim::before{animation:none;}
   }
+
+  /* PROSES KERJA */
+  .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;position:relative;}
+  .process-grid::before{
+    content:"";position:absolute;top:31px;left:10%;right:10%;height:2px;
+    background:linear-gradient(90deg,transparent,var(--border) 8%,var(--border) 92%,transparent);
+  }
+  .process-step{position:relative;text-align:center;padding:0 6px;}
+  .process-icon{
+    position:relative;width:62px;height:62px;margin:0 auto 18px;border-radius:50%;
+    background:var(--bg-alt);border:2px solid var(--border);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    transition:border-color .2s ease,background .2s ease,transform .2s ease;
+  }
+  .process-icon svg{width:24px;height:24px;}
+  .process-step:hover .process-icon{border-color:var(--accent);background:var(--accent-wash);transform:translateY(-3px);}
+  .process-num{
+    position:absolute;top:-6px;right:-8px;min-width:24px;height:24px;padding:0 5px;border-radius:12px;
+    background:var(--accent);color:var(--btn-primary-text);
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .process-step h3{font-family:'Sora',sans-serif;font-size:17px;margin:0 0 8px;}
+  .process-step p{font-size:13.5px;color:var(--text-dim);line-height:1.6;margin:0;}
+  @media (max-width:920px){
+    .process-grid{grid-template-columns:1fr;gap:0;max-width:460px;}
+    .process-grid::before{top:31px;bottom:31px;left:30px;right:auto;width:2px;height:auto;background:var(--border);}
+    .process-step{display:grid;grid-template-columns:62px 1fr;column-gap:20px;text-align:left;padding:0 0 28px;}
+    .process-step:last-child{padding-bottom:0;}
+    .process-icon{grid-row:1 / span 2;margin:0;}
+    .process-step h3{align-self:end;margin:0 0 4px;}
+    .process-step p{align-self:start;}
+  }
+
+  /* EFEK TAMBAHAN */
+  .caret{display:inline-block;width:2px;height:1em;margin-left:4px;vertical-align:-0.12em;background:var(--accent);animation:caretBlink 1s steps(1) infinite;}
+  @keyframes caretBlink{50%{opacity:0;}}
+  .cursor-ring{
+    position:fixed;top:0;left:0;z-index:300;pointer-events:none;
+    width:34px;height:34px;border-radius:50%;border:1.5px solid var(--accent);
+    opacity:0;transition:opacity .25s ease,width .2s ease,height .2s ease,background .2s ease;
+  }
+  .cursor-ring.show{opacity:0.7;}
+  .cursor-ring.hot{width:56px;height:56px;background:var(--accent-wash);opacity:0.9;}
+  .cursor-ring.down{width:26px;height:26px;}
+  @media (hover:none),(pointer:coarse){.cursor-ring{display:none;}}
+  @media (prefers-reduced-motion:reduce){.caret{animation:none;}}
+  .scroll-progress{
+    position:absolute;left:0;bottom:-1px;width:100%;height:3px;
+    background:linear-gradient(90deg,var(--accent-dim),var(--accent));
+    transform:scaleX(0);transform-origin:left center;pointer-events:none;
+    border-radius:0 3px 3px 0;
+  }
+
+  /* TRANSISI HALAMAN & EASTER EGG */
+  body{animation:pageIn .45s ease both;}
+  @keyframes pageIn{from{opacity:0;}to{opacity:1;}}
+  body.page-leave{opacity:0;transition:opacity .22s ease;}
+  .bg-anim{contain:layout paint;}
+  .confetti-canvas{position:fixed;inset:0;z-index:400;pointer-events:none;}
+  .egg-toast{
+    position:fixed;left:50%;bottom:32px;z-index:400;transform:translate(-50%,20px);opacity:0;
+    background:var(--bg-alt);color:var(--text);border:1px solid var(--accent-dim);
+    padding:12px 20px;border-radius:999px;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    transition:opacity .3s ease,transform .3s ease;pointer-events:none;
+  }
+  .egg-toast.show{opacity:1;transform:translate(-50%,0);}
+  @media (prefers-reduced-motion:reduce){body{animation:none;}}

@@ -28,7 +28,12 @@ initReveal(document.querySelectorAll('.back-link, #documents .kicker, #documents
 /* === DATA SERTIFIKAT — ganti dengan sertifikatmu ===
    image: file gambar di folder assets (disarankan landscape, rasio A4 ~ 297:210) */
 const certificates = [
-  { title: "Nama Sertifikat 1", issuer: "Penyelenggara", year: "2026", image: "assets/cert-1.svg" }
+  { title: "Nama Sertifikat 1", issuer: "Penyelenggara", year: "2026", image: "assets/cert-1.svg" },
+  { title: "Nama Sertifikat 2", issuer: "Penyelenggara", year: "2026", image: "assets/cert-2.svg" },
+  { title: "Nama Sertifikat 3", issuer: "Penyelenggara", year: "2025", image: "assets/cert-3.svg" },
+  { title: "Nama Sertifikat 4", issuer: "Penyelenggara", year: "2025", image: "assets/cert-4.svg" },
+  { title: "Nama Sertifikat 5", issuer: "Penyelenggara", year: "2025", image: "assets/cert-5.svg" },
+  { title: "Nama Sertifikat 6", issuer: "Penyelenggara", year: "2024", image: "assets/cert-6.svg" }
 ];
 
 const certGrid = document.getElementById('certGrid');
@@ -36,7 +41,7 @@ certificates.forEach((c, i) => {
   const card = document.createElement('div');
   card.className = 'cert-card';
   card.innerHTML = `
-    <div class="cert-thumb"><img src="${c.image}" alt="${c.title}" loading="lazy"></div>
+    <div class="cert-thumb"><img src="${c.image}" alt="${c.title}" loading="lazy" decoding="async"></div>
     <div class="cert-meta"><p class="cert-title">${c.title}</p><p class="cert-sub">${c.issuer} · ${c.year}</p></div>`;
   card.addEventListener('click', () => openLightbox(i));
   certGrid.appendChild(card);
@@ -51,7 +56,7 @@ function openLightbox(i){
     <button class="modal-close" id="lightboxCloseBtn" aria-label="Tutup pratinjau">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <img src="${c.image}" alt="${c.title}">
+    <img src="${c.image}" alt="${c.title}" decoding="async">
     <h3>${c.title}</h3>
     <p class="modal-role">${c.issuer} · ${c.year}</p>`;
   lightboxOverlay.classList.add('open');

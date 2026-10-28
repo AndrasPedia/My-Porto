@@ -129,7 +129,7 @@ function openModal(i){
     <button class="modal-close" id="modalCloseBtn" aria-label="Tutup detail project">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <div class="modal-thumb"><img src="${p.image}" alt="Tampilan ${p.name}"></div>
+    <div class="modal-thumb"><img src="${p.image}" alt="Tampilan ${p.name}" decoding="async"></div>
     <h3>${p.name}</h3>
     <p class="modal-role">${p.role}</p>
     <div class="modal-block"><h4>Overview</h4><p>${p.overview}</p></div>

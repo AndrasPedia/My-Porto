@@ -129,7 +129,7 @@ function openLightbox(i){
     <button class="modal-close" id="lightboxCloseBtn" aria-label="Tutup pratinjau">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <img src="${d.image}" alt="${d.title}">
+    <img src="${d.image}" alt="${d.title}" decoding="async">
     <h3>${d.title}</h3>
     <p class="modal-role">${d.category}</p>
   `;
