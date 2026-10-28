@@ -5,7 +5,7 @@ const mobileApps = [
     image: "assets/1.png",
     overview: "Aplikasi mobile Coffee Story memudahkan pengguna melihat detail produk kopi dan berbelanja melalui katalog serta keranjang belanja yang praktis.",
     role: "UI/UX Designer — merancang alur dan tampilan aplikasi",
-    figma: "https://www.figma.com/file/your-figma-id/app-absensi-mobile",
+    figma: "https://www.figma.com/design/DUstXyZnafQ5f0qLJtg3eR/Mobile-App?node-id=0-1&p=f&t=DdnOaYu2yYsuzFhu-0",
     features: ["assets/2.png", "assets/3.png", "assets/4.png"]
   },
 ];

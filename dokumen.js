@@ -28,12 +28,7 @@ initReveal(document.querySelectorAll('.back-link, #documents .kicker, #documents
 /* === DATA SERTIFIKAT — ganti dengan sertifikatmu ===
    image: file gambar di folder assets (disarankan landscape, rasio A4 ~ 297:210) */
 const certificates = [
-  { title: "Nama Sertifikat 1", issuer: "Penyelenggara", year: "2026", image: "assets/cert-1.svg" },
-  { title: "Nama Sertifikat 2", issuer: "Penyelenggara", year: "2026", image: "assets/cert-2.svg" },
-  { title: "Nama Sertifikat 3", issuer: "Penyelenggara", year: "2025", image: "assets/cert-3.svg" },
-  { title: "Nama Sertifikat 4", issuer: "Penyelenggara", year: "2025", image: "assets/cert-4.svg" },
-  { title: "Nama Sertifikat 5", issuer: "Penyelenggara", year: "2025", image: "assets/cert-5.svg" },
-  { title: "Nama Sertifikat 6", issuer: "Penyelenggara", year: "2024", image: "assets/cert-6.svg" }
+  { title: "Nama Sertifikat 1", issuer: "Penyelenggara", year: "2026", image: "assets/cert-1.svg" }
 ];
 
 const certGrid = document.getElementById('certGrid');

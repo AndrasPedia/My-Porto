@@ -60,44 +60,44 @@ const projects = [
     role: "UI/UX Designer — merancang alur dan tampilan aplikasi"
   },
   {
-    name: "Unnamed Project",
+    name: "Dashboard 1",
     orientation: "landscape",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
     image: "assets/Dashboard/Dashboard1.png",
-    figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
+    figma: "https://www.figma.com/design/xYAX3XcQolpGrq5ZKhGKwP/Untitled?node-id=0-1&p=f&t=4bgW8JItsfiDMlwC-0",
     overview: "",
     features: [""],
-    role: "UI/UX Designer — merancang"
+    role: "UI/UX Designer"
   },
   {
-    name: "Unnamed Project",
+    name: "Dashboard 2",
     orientation: "landscape",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
     image: "assets/Dashboard/Dashboard2.png",
-    figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
+    figma: "https://www.figma.com/design/xYAX3XcQolpGrq5ZKhGKwP/Untitled?node-id=1-3668&t=4bgW8JItsfiDMlwC-0",
     overview: "",
     features: [""],
-    role: "UI/UX Designer — merancang"
+    role: "UI/UX Designer"
   },
   {
-    name: "Unnamed Project",
+    name: "Dashboard 3",
     orientation: "landscape",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
     image: "assets/Dashboard/Dashboard3.png",
-    figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
+    figma: "https://www.figma.com/design/xYAX3XcQolpGrq5ZKhGKwP/Untitled?node-id=1-4103&t=4bgW8JItsfiDMlwC-0",
     overview: "",
     features: [""],
-    role: "UI/UX Designer — merancang"
+    role: "UI/UX Designer"
   },
   {
-    name: "Unnamed Project",
+    name: "Dashboard 4",
     orientation: "landscape",
     tags: ["Figma", "UI/UX Design", "Dashboard Design"],
     image: "assets/Dashboard/Dashboard4.png",
-    figma: "https://www.figma.com/file/your-figma-id/perpustakaan-sekolah",
+    figma: "https://www.figma.com/design/xYAX3XcQolpGrq5ZKhGKwP/Untitled?node-id=1-4264&p=f&t=4bgW8JItsfiDMlwC-0",
     overview: "",
     features: [""],
-    role: "UI/UX Designer — merancang"
+    role: "UI/UX Designer"
   },
 ];
 
