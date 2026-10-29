@@ -28,7 +28,7 @@ initReveal(document.querySelectorAll('.back-link, #documents .kicker, #documents
 /* === DATA SERTIFIKAT — ganti dengan sertifikatmu ===
    image: file gambar di folder assets (disarankan landscape, rasio A4 ~ 297:210) */
 const certificates = [
-  { title: "Nama Sertifikat 1", issuer: "Penyelenggara", year: "2026", image: "assets/cert-1.svg" }
+  { title: "Junior Data Scientist", issuer: "Dicoding", year: "2026", image: "assets/cert.jpg" }
 ];
 
 const certGrid = document.getElementById('certGrid');

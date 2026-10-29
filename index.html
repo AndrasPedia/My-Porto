@@ -13,11 +13,20 @@
     var saved = localStorage.getItem('site_theme');
     var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
     if(theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    try{
+      /* splash: tampil saat halaman di-refresh atau dibuka langsung; tidak tampil saat pindah halaman lewat link */
+      var nav = performance.getEntriesByType('navigation')[0];
+      var type = nav ? nav.type : 'navigate';
+      var internal = false;
+      try{ internal = !!document.referrer && new URL(document.referrer).origin === location.origin; }catch(e){}
+      if(!(type === 'reload' || (type === 'navigate' && !internal))) document.documentElement.classList.add('no-splash');
+    }catch(e){ document.documentElement.classList.add('no-splash'); }
   })();
 </script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="splash" aria-hidden="true"><div class="splash-inner"><img class="splash-logo" src="assets/logo.webp" alt="" width="64" height="64"><p class="splash-name">Buatin<span>Aaaja</span></p><div class="splash-bar"><span></span></div></div></div>
 <div class="bg-anim" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
 
 <header>
@@ -98,11 +107,11 @@
       </div>
       <div class="stat-grid">
         <div class="stat-card">
-          <p class="stat-num">12+</p>
+          <p class="stat-num">15</p>
           <p class="stat-label">Project Selesai</p>
         </div>
         <div class="stat-card">
-          <p class="stat-num">10</p>
+          <p class="stat-num">9</p>
           <p class="stat-label">Skill Utama</p>
         </div>
         <div class="stat-card">
@@ -118,16 +127,22 @@
   <div class="wrap">
     <p class="kicker">Peralatan</p>
     <h2 class="section-title">Software &amp; Tools I Use</h2>
-    <div class="tools-grid">
-      <div class="tool-card"><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vscode/vscode-original.svg" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('VS')"></div><div><p class="tool-name">Visual Studio Code</p><p class="tool-desc">Code editor utama untuk semua project harian.</p></div></div>
-      <div class="tool-card"><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/figma/figma-original.svg" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Fg')"></div><div><p class="tool-name">Figma</p><p class="tool-desc">Merancang wireframe dan tampilan UI sebelum coding.</p></div></div>
-      <div class="tool-card"><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Gh')"></div><div><p class="tool-name">GitHub</p><p class="tool-desc">Menyimpan repository dan mengelola kolaborasi kode.</p></div></div>
-      <div class="tool-card"><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/laravel/laravel-original.svg" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('La')"></div><div><p class="tool-name">Laravel</p><p class="tool-desc">Framework PHP andalan untuk membangun sistem backend.</p></div></div>
-      <div class="tool-card"><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/chrome/chrome-original.svg" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Ch')"></div><div><p class="tool-name">Google Chrome</p><p class="tool-desc">DevTools untuk debugging tampilan dan performa.</p></div></div>
-      <div class="tool-card"><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Db')"></div><div><p class="tool-name">MySQL</p><p class="tool-desc">Mengelola basis data untuk aplikasi yang dibangun.</p></div></div>
-      <div class="tool-card"><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Gt')"></div><div><p class="tool-name">Git</p><p class="tool-desc">Version control untuk menjaga riwayat perubahan kode.</p></div></div>
-      <div class="tool-card"><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/photoshop/photoshop-original.svg" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Ps')"></div><div><p class="tool-name">Adobe Photoshop</p><p class="tool-desc">Menyunting aset visual dan gambar untuk website.</p></div></div>
-      <div class="tool-card"><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/canva/canva-original.svg" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Cv')"></div><div><p class="tool-name">Canva</p><p class="tool-desc">Membuat materi visual pendukung dengan cepat.</p></div></div>
+    <div class="marquee" data-dir="left">
+      <div class="marquee-track">
+        <div class="tool-chip" title="Code editor utama untuk semua project harian."><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vscode/vscode-original.svg" alt="" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('VS')"></div><span class="tool-chip-name">Visual Studio Code</span></div>
+        <div class="tool-chip" title="Merancang wireframe dan tampilan UI sebelum coding."><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/figma/figma-original.svg" alt="" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Fg')"></div><span class="tool-chip-name">Figma</span></div>
+        <div class="tool-chip" title="Menyimpan repository dan mengelola kolaborasi kode."><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg" alt="" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Gh')"></div><span class="tool-chip-name">GitHub</span></div>
+        <div class="tool-chip" title="Framework PHP andalan untuk membangun sistem backend."><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/laravel/laravel-original.svg" alt="" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('La')"></div><span class="tool-chip-name">Laravel</span></div>
+        <div class="tool-chip" title="DevTools untuk debugging tampilan dan performa."><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/chrome/chrome-original.svg" alt="" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Ch')"></div><span class="tool-chip-name">Google Chrome</span></div>
+      </div>
+    </div>
+    <div class="marquee" data-dir="right">
+      <div class="marquee-track">
+        <div class="tool-chip" title="Mengelola basis data untuk aplikasi yang dibangun."><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Db')"></div><span class="tool-chip-name">MySQL</span></div>
+        <div class="tool-chip" title="Version control untuk menjaga riwayat perubahan kode."><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Gt')"></div><span class="tool-chip-name">Git</span></div>
+        <div class="tool-chip" title="Membuat materi visual pendukung dengan cepat."><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/canva/canva-original.svg" alt="" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Cv')"></div><span class="tool-chip-name">Canva</span></div>
+        <div class="tool-chip" title="CMS untuk membangun dan mengelola website dengan cepat."><div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/wordpress/wordpress-plain.svg" alt="" decoding="async" onerror="this.parentNode.classList.add('no-img');this.replaceWith('Wp')"></div><span class="tool-chip-name">WordPress</span></div>
+      </div>
     </div>
   </div>
 </section>

@@ -44,6 +44,108 @@
     }
   }
 
+  /* 9. Marquee logo tools: baris logo bergerak pelan, berhenti saat disorot */
+  document.querySelectorAll('.marquee').forEach(m => {
+    const track = m.querySelector('.marquee-track');
+    if(!track) return;
+    if(reduce) return; /* tanpa animasi: tampil sebagai baris biasa */
+    const items = Array.from(track.children);
+    const build = () => {
+      track.querySelectorAll('[data-clone]').forEach(n => n.remove());
+      m.classList.add('is-running'); /* ukur dalam mode satu baris panjang */
+      let guard = 0;
+      /* isi satu "setengah" sampai lebih lebar dari area tampil */
+      while(track.scrollWidth < m.clientWidth + 40 && guard++ < 10){
+        items.forEach(it => { const c = it.cloneNode(true); c.dataset.clone = '1'; c.setAttribute('aria-hidden','true'); track.appendChild(c); });
+      }
+      const unit = Array.from(track.children);
+      unit.forEach(it => { const c = it.cloneNode(true); c.dataset.clone = '1'; c.setAttribute('aria-hidden','true'); track.appendChild(c); });
+      const w = track.scrollWidth / 2;
+      track.style.setProperty('--marquee-dur', Math.max(w / 45, 12).toFixed(1) + 's');
+    };
+    build();
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 250); });
+  });
+
+  /* Keterangan singkat: klik chip tools untuk melihat penjelasannya */
+  document.querySelectorAll('.tool-chip').forEach(ch => {
+    if(ch.title){ ch.dataset.desc = ch.title; ch.removeAttribute('title'); }
+    ch.setAttribute('tabindex', '0');
+    ch.setAttribute('role', 'button');
+  });
+  let pop = null, popFor = null;
+  const closePop = () => {
+    if(!pop) return;
+    pop.remove(); pop = null;
+    if(popFor){ const mq = popFor.closest('.marquee'); if(mq) mq.classList.remove('is-paused'); popFor = null; }
+  };
+  const openPop = (chip) => {
+    closePop();
+    const name = (chip.querySelector('.tool-chip-name') || {}).textContent || '';
+    const desc = chip.dataset.desc || '';
+    if(!desc) return;
+    pop = document.createElement('div');
+    pop.className = 'tool-pop';
+    pop.setAttribute('role', 'tooltip');
+    pop.innerHTML = '<strong></strong><p></p>';
+    pop.querySelector('strong').textContent = name;
+    pop.querySelector('p').textContent = desc;
+    document.body.appendChild(pop);
+    const mq = chip.closest('.marquee'); if(mq) mq.classList.add('is-paused');
+    popFor = chip;
+    const r = chip.getBoundingClientRect();
+    const pw = pop.offsetWidth, ph = pop.offsetHeight;
+    let left = r.left + r.width / 2 - pw / 2;
+    left = Math.max(12, Math.min(left, window.innerWidth - pw - 12));
+    let top = r.top - ph - 12, below = false;
+    if(top < 12){ top = r.bottom + 12; below = true; }
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+    pop.classList.toggle('below', below);
+    requestAnimationFrame(() => pop && pop.classList.add('show'));
+  };
+  /* Mouse: keterangan muncul saat kursor diarahkan. Sentuh (HP/tablet): ketuk logo untuk membuka,
+     sentuh di mana saja untuk menutup. Jenis input dibaca dari event (bukan dari ukuran layar),
+     jadi tetap benar di HP, tablet, dan laptop layar sentuh. */
+  let lastType = 'mouse', openedAt = 0, openScroll = 0, openWidth = window.innerWidth;
+  const tapOpen = (chip) => {
+    openPop(chip);
+    openedAt = Date.now(); openScroll = window.scrollY; openWidth = window.innerWidth;
+  };
+  document.addEventListener('pointerdown', (e) => {
+    lastType = e.pointerType || 'mouse';
+    if(!pop) return;
+    if(e.target.closest && e.target.closest('.tool-chip')) return;
+    closePop(); /* sentuh/klik di mana saja menutup keterangan */
+  }, { passive: true });
+  document.addEventListener('pointerover', (e) => {
+    if(e.pointerType !== 'mouse') return;
+    const chip = e.target.closest && e.target.closest('.tool-chip');
+    if(chip && chip !== popFor) openPop(chip);
+  });
+  document.addEventListener('pointerout', (e) => {
+    if(e.pointerType !== 'mouse') return;
+    const chip = e.target.closest && e.target.closest('.tool-chip');
+    if(chip && !(e.relatedTarget && chip.contains(e.relatedTarget))) closePop();
+  });
+  document.addEventListener('click', (e) => {
+    const chip = e.target.closest && e.target.closest('.tool-chip');
+    if(!chip || lastType === 'mouse') return;
+    if(chip === popFor && Date.now() - openedAt > 350) closePop(); else if(chip !== popFor) tapOpen(chip);
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closePop();
+    const chip = e.target.closest && e.target.closest('.tool-chip');
+    if(chip && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); chip === popFor ? closePop() : tapOpen(chip); }
+  });
+  /* Tutup saat di-scroll cukup jauh. Perubahan kecil (mis. bar alamat HP naik-turun) diabaikan. */
+  window.addEventListener('scroll', () => {
+    if(pop && Math.abs(window.scrollY - openScroll) > 30 && Date.now() - openedAt > 350) closePop();
+  }, { passive: true });
+  window.addEventListener('resize', () => {
+    if(pop && Math.abs(window.innerWidth - openWidth) > 40) closePop();
+  });
+
   /* 6. Transisi halus antarhalaman (fade) */
   if(!reduce){
     document.addEventListener('click', (e) => {
@@ -178,7 +280,7 @@
     if(active !== card){
       active = card;
       saved = { transition: card.style.transition, delay: card.style.transitionDelay, transform: card.style.transform };
-      card.style.transition = 'transform .12s ease-out, border-color .18s ease';
+      card.style.transition = 'transform .12s ease-out, border-color .18s ease, box-shadow .3s ease';
       card.style.transitionDelay = '0ms';
     }
     const r = card.getBoundingClientRect();
@@ -194,4 +296,26 @@
     c.style.transform = saved.transform;
   }
   document.addEventListener('mouseleave', resetTilt);
+  /* 8. Efek pencahayaan: cahaya lembut mengikuti kursor + kartu menyala saat disorot */
+  const light = document.createElement('div');
+  light.className = 'cursor-light';
+  const bg = document.querySelector('.bg-anim');
+  (bg || document.body).appendChild(light);
+  let lx = window.innerWidth / 2, ly = window.innerHeight / 3, tx = lx, ty = ly;
+  document.addEventListener('mousemove', (e) => { tx = e.clientX; ty = e.clientY; light.classList.add('on'); }, { passive: true });
+  document.addEventListener('mouseleave', () => light.classList.remove('on'));
+  (function lightLoop(){
+    lx += (tx - lx) * 0.1; ly += (ty - ly) * 0.1;
+    light.style.setProperty('--lx', lx.toFixed(1) + 'px');
+    light.style.setProperty('--ly', ly.toFixed(1) + 'px');
+    requestAnimationFrame(lightLoop);
+  })();
+  const GLOW_SEL = '.project-card, .mobile-card, .cert-card, .tool-card, .stat-card, .cv-card';
+  document.addEventListener('mousemove', (e) => {
+    const card = e.target.closest && e.target.closest(GLOW_SEL);
+    if(!card) return;
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left).toFixed(0) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top).toFixed(0) + 'px');
+  }, { passive: true });
 })();

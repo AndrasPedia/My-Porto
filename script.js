@@ -168,7 +168,7 @@ themeToggleBtn.addEventListener('click', () => {
 const revealSelectors = [
   '.hero-eyebrow','.hero-name','.hero-role','.hero-desc','.hero-actions','.hero-visual',
   '#about .kicker','#about .section-title','#about .about-text p','#about .stat-card',
-  '#tools .kicker','#tools .section-title','#tools .tool-card',
+  '#tools .kicker','#tools .section-title','#tools .marquee',
   '#process .kicker','#process .section-title','#process .process-step',
   '#projects .kicker','#projects .section-title','#projects .subsection-desc',
   '.contact-inner .kicker','.contact-inner h2','.contact-inner p','.contact-inner .contact-links'

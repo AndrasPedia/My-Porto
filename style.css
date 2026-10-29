@@ -610,3 +610,114 @@
   }
   .egg-toast.show{opacity:1;transform:translate(-50%,0);}
   @media (prefers-reduced-motion:reduce){body{animation:none;}}
+
+  /* EFEK PENCAHAYAAN */
+  .cursor-light{
+    position:absolute;inset:0;opacity:0;transition:opacity .4s ease;
+    background:radial-gradient(520px circle at var(--lx,50%) var(--ly,30%),
+      color-mix(in srgb,var(--accent) 18%,transparent),transparent 65%);
+  }
+  .cursor-light.on{opacity:1;}
+  :root[data-theme="light"] .cursor-light{
+    background:radial-gradient(520px circle at var(--lx,50%) var(--ly,30%),
+      color-mix(in srgb,var(--accent) 12%,transparent),transparent 65%);
+  }
+  .project-card,.mobile-card,.cert-card,.tool-card,.stat-card,.cv-card{position:relative;}
+  .project-card::after,.mobile-card::after,.cert-card::after,.tool-card::after,.stat-card::after,.cv-card::after{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;
+    transition:opacity .3s ease;
+    background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),
+      color-mix(in srgb,var(--accent) 16%,transparent),transparent 65%);
+  }
+  .project-card::before,.mobile-card::before,.cert-card::before,.tool-card::before,.stat-card::before,.cv-card::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;opacity:0;
+    transition:opacity .3s ease;z-index:1;
+    background:radial-gradient(180px circle at var(--mx,50%) var(--my,50%),var(--accent),transparent 70%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    mask-composite:exclude;
+  }
+  .project-card:hover::after,.mobile-card:hover::after,.cert-card:hover::after,.tool-card:hover::after,.stat-card:hover::after,.cv-card:hover::after,
+  .project-card:hover::before,.mobile-card:hover::before,.cert-card:hover::before,.tool-card:hover::before,.stat-card:hover::before,.cv-card:hover::before{opacity:1;}
+  @media (hover:none),(pointer:coarse){.cursor-light{display:none;}}
+
+  /* CAHAYA MENYAPU DI JUDUL HERO & BAYANGAN LEMBUT KARTU */
+  .hero-name-line{
+    background:linear-gradient(105deg,var(--text) 0%,var(--text) 40%,var(--accent) 50%,var(--text) 60%,var(--text) 100%);
+    background-size:250% 100%;background-position:100% 0;
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+    animation:titleSweep 7s ease-in-out infinite;
+  }
+  .hero-name-line:last-child{animation-delay:.25s;}
+  @keyframes titleSweep{
+    0%{background-position:100% 0;}
+    35%{background-position:0% 0;}
+    100%{background-position:0% 0;}
+  }
+  .project-card,.mobile-card,.cert-card,.tool-card,.stat-card,.cv-card{
+    transition:border-color .18s ease,transform .18s ease,box-shadow .3s ease;
+  }
+  .project-card:hover,.mobile-card:hover,.cert-card:hover,.tool-card:hover,.stat-card:hover,.cv-card:hover{
+    box-shadow:0 22px 44px -18px color-mix(in srgb,var(--accent) 45%,transparent),
+               0 6px 16px -8px rgba(0,0,0,0.35);
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-name-line{animation:none;background:none;-webkit-text-fill-color:currentColor;color:var(--text);}
+  }
+
+  /* MARQUEE TOOLS */
+  .marquee{overflow:hidden;margin:0 0 18px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .marquee-track{display:flex;gap:0;width:max-content;padding:4px 0;}
+  .marquee:not(.is-running) .marquee-track{width:auto;flex-wrap:wrap;justify-content:center;}
+  .marquee.is-running .marquee-track{animation:marqueeL var(--marquee-dur,30s) linear infinite;}
+  .marquee[data-dir="right"].is-running .marquee-track{animation-name:marqueeR;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  @keyframes marqueeL{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @keyframes marqueeR{from{transform:translateX(-50%);}to{transform:translateX(0);}}
+  .tool-chip{
+    display:flex;align-items:center;gap:14px;flex-shrink:0;margin:4px 8px;
+    padding:12px 22px 12px 14px;border-radius:999px;
+    background:var(--surface);border:1px solid var(--border);
+    transition:border-color .2s ease,transform .2s ease,box-shadow .3s ease;
+  }
+  .tool-chip:hover{border-color:var(--accent-dim);transform:translateY(-2px);box-shadow:0 12px 26px -14px color-mix(in srgb,var(--accent) 50%,transparent);}
+  .tool-chip-name{font-weight:600;font-size:15px;white-space:nowrap;}
+  .tool-chip .tool-icon{width:38px;height:38px;border-radius:50%;}
+
+  /* SPLASH PEMBUKA */
+  .splash{
+    position:fixed;inset:0;z-index:1000;background:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+    animation:splashOut .5s ease 1.5s forwards;
+  }
+  .no-splash .splash{display:none;}
+  .splash-inner{display:flex;flex-direction:column;align-items:center;gap:14px;animation:splashIn .6s cubic-bezier(.16,1,.3,1) both;}
+  .splash-logo{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--border);}
+  .splash-name{font-family:'Sora',sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.01em;margin:0;}
+  .splash-name span{color:var(--accent);}
+  .splash-bar{width:120px;height:3px;border-radius:3px;background:var(--border);overflow:hidden;}
+  .splash-bar span{display:block;height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;animation:splashBar 1.3s ease .15s forwards;}
+  @keyframes splashIn{from{opacity:0;transform:translateY(10px) scale(.96);}to{opacity:1;transform:none;}}
+  @keyframes splashBar{to{transform:scaleX(1);}}
+  @keyframes splashOut{to{opacity:0;visibility:hidden;pointer-events:none;}}
+  @media (prefers-reduced-motion:reduce){.splash{display:none;}}
+
+  /* KETERANGAN SINGKAT TOOLS */
+  .tool-chip{cursor:pointer;}
+  .tool-chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .marquee.is-paused .marquee-track{animation-play-state:paused;}
+  .tool-pop{
+    position:fixed;z-index:350;width:min(280px,calc(100vw - 24px));
+    background:var(--bg-alt);color:var(--text);
+    border:1px solid var(--accent-dim);border-radius:14px;padding:14px 16px;
+    box-shadow:0 18px 40px -12px rgba(0,0,0,0.5);
+    opacity:0;transform:translateY(6px);transition:opacity .2s ease,transform .2s ease;
+  }
+  .tool-pop.below{transform:translateY(-6px);}
+  .tool-pop.show{opacity:1;transform:none;}
+  .tool-pop strong{display:block;font-family:'Sora',sans-serif;font-size:15px;margin:0 0 4px;color:var(--accent);}
+  .tool-pop p{margin:0;font-size:13.5px;line-height:1.55;color:var(--text-dim);}
